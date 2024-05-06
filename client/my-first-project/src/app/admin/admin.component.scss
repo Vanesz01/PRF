@@ -1,0 +1,26 @@
+.flex-container {
+    display: flex;
+  }
+  
+  // app-book-form {
+  //   margin-right: 20px; /* Optional: Add space between components */
+  // }
+
+  .form {
+    padding-left: 20px;
+    text-align: center;
+    flex: 0 0 33%; /* Each inner div takes up 50% of the outer div's width */
+    box-sizing: border-box; 
+  }
+  .button {
+    text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+.logout-button {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

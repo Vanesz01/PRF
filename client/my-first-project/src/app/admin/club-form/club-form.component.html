@@ -1,0 +1,53 @@
+<div class="login-container">
+  <p class="title">Add a book club</p>
+  <form class="login-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <input
+      formControlName="name"
+      type="text"
+      placeholder="Name"
+      required
+      [ngClass]="{ 'invalid-input': signupForm.get('name')?.errors }"
+    />
+    <div
+      *ngIf="
+        signupForm.get('name')?.invalid &&
+        (signupForm.get('name')?.dirty || signupForm.get('name')?.touched)
+      "
+    >
+      <p
+        *ngIf="
+          signupForm.get('name')?.errors &&
+          (signupForm.get('name')?.errors)!['required']
+        "
+      >
+        Name is required.
+      </p>
+    </div>
+    <input
+      formControlName="description"
+      type="text"
+      placeholder="Description"
+      required
+      [ngClass]="{ 'invalid-input': signupForm.get('description')?.errors }"
+    />
+    <div
+      *ngIf="
+        signupForm.get('description')?.invalid &&
+        (signupForm.get('description')?.dirty ||
+          signupForm.get('description')?.touched)
+      "
+    >
+      <p
+        *ngIf="
+          signupForm.get('description')?.errors &&
+          (signupForm.get('description')?.errors)!['required']
+        "
+      >
+        Description is required.
+      </p>
+    </div>
+    <div class="buttons">
+      <button type="submit">Add</button>
+    </div>
+  </form>
+</div>

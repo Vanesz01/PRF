@@ -1,0 +1,16 @@
+<app-header-component></app-header-component>
+<p class="title">Change user datas</p>
+<div class="login-container">
+  <form class="login-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input formControlName="name" type="text" placeholder="Name" />
+    <input formControlName="address" type="text" placeholder="Address" />
+    <input formControlName="nickname" type="text" placeholder="Nickname" />
+    <div class="buttons">
+      <button type="submit">Change</button>
+    </div>
+  </form>
+</div>
+
+<div class="logout-button buttons">
+  <button type="reset" (click)="logout()">Logout</button>
+</div>

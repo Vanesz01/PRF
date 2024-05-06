@@ -1,0 +1,27 @@
+<app-header-component></app-header-component>
+<p *ngIf="!!club" class="main-title">{{ club!.name }}</p>
+<div
+  class="table-container"
+  *ngIf="club!.books! && club!.books!.length; else noBooksTemplate"
+>
+  <table class="clickable">
+    <thead>
+      <tr>
+        <th>Author</th>
+        <th>Title</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of club!.books!" (click)="onRowClick(book._id)">
+        <td>{{ book.author }}</td>
+        <td>{{ book.title }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #noBooksTemplate>
+  <p>No books are in this club.</p>
+</ng-template>
+<div class="back-button">
+  <button (click)="goBack()">Back</button>
+</div>

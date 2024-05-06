@@ -1,0 +1,25 @@
+div {
+    width: 100%;
+    height: 50px;
+    background-color: grey;
+
+}
+
+span {
+    color: white;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-top: 15px;
+    font-size: 20px;
+    float: left;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+span:last-of-type {
+    float: right;
+    padding-right: 10px;
+    font-size: 16px;
+}

@@ -1,0 +1,160 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    // height: 100vh;
+    // display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+app-root {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #bbbbbb;
+    color: #333;
+}
+
+.clickable tr:hover {
+    background-color: rgb(241, 241, 241);
+    cursor: pointer;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.clickable tr:nth-child(even):hover {
+    background-color: #cbcbcb;
+    cursor: pointer;  
+}
+
+.table-container {
+    margin: 20px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(237, 100, 100);
+    width: 80%;
+    color: white;
+    padding: 10px;
+}
+
+.back-button {
+    float: right;
+    width: 10%;
+    padding-top: 20px;
+}
+
+.login-form button:hover {
+    background-color: rgb(117, 54, 54);
+}
+
+// .login-container {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+.title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.main-title {
+  margin: 10px 0;
+  text-align: center;
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    gap: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-form input, .login-form select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+.login-form select:hover {
+    cursor: pointer;
+}
+
+.login-form select option {
+    padding: 10px;
+}
+
+.login-form .buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.login-form button {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: cornflowerblue;
+    width: 100%;
+    color: white;
+    padding: 10px;
+}
+
+.login-form button:hover {
+    background-color: rgb(50, 74, 120);
+}
+
+.login-form button[type="button"] {
+    background-color: rgb(101, 231, 101);
+}
+
+.login-form button[type="button"]:hover {
+    background-color: rgb(57, 129, 57);
+}
+
+.login-form button[type="reset"] {
+    background-color: rgb(211, 76, 76);
+}
+
+.login-form button[type="reset"]:hover {
+    background-color: rgb(129, 45, 45);
+}
+
+.invalid-input {
+    border-color: #ff0000 !important;
+    border-width: 3px !important;
+    background-color: #ffdddd;
+}

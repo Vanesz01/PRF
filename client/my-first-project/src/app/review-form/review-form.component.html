@@ -1,0 +1,60 @@
+<div class="login-container">
+  <p class="title">Add a review</p>
+  <form class="login-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <label>Rating</label>
+    <select
+      id="number"
+      name="number"
+      placeholder="Rating(1-5)"
+      formControlName="rating"
+      required
+      [ngClass]="{ 'invalid-input': signupForm.get('rating')?.errors }"
+    >
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <div
+      *ngIf="
+        signupForm.get('rating')?.invalid &&
+        (signupForm.get('rating')?.dirty || signupForm.get('rating')?.touched)
+      "
+    >
+      <p
+        *ngIf="
+          signupForm.get('rating')?.errors &&
+          (signupForm.get('rating')?.errors)!['required']
+        "
+      >
+        Rating is required.
+      </p>
+    </div>
+    <input
+      formControlName="comment"
+      type="text"
+      placeholder="Comment"
+      required
+      [ngClass]="{ 'invalid-input': signupForm.get('comment')?.errors }"
+    />
+    <div
+      *ngIf="
+        signupForm.get('comment')?.invalid &&
+        (signupForm.get('comment')?.dirty || signupForm.get('comment')?.touched)
+      "
+    >
+      <p
+        *ngIf="
+          signupForm.get('comment')?.errors &&
+          (signupForm.get('comment')?.errors)!['required']
+        "
+      >
+        Comment is required.
+      </p>
+    </div>
+    <div class="buttons">
+      <button type="submit">Add</button>
+    </div>
+  </form>
+</div>

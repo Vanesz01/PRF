@@ -1,0 +1,33 @@
+<app-header-component></app-header-component>
+<p class="main-title" *ngIf="!!book">{{ book!.author }}: {{ book!.title }}</p>
+
+<p class="title">Reviews</p>
+<div
+  class="table-container"
+  *ngIf="reviews && reviews.length; else noReviewsTemplate"
+>
+  <table>
+    <thead>
+      <tr>
+        <th>Rating</th>
+        <th>Comment</th>
+        <th>User</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let review of reviews">
+        <td>{{ review.rating }}</td>
+        <td>{{ review.comment }}</td>
+        <td *ngIf="review.user !== undefined">{{ review.user.name }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #noReviewsTemplate>
+  <p>No reviews for this book.</p>
+</ng-template>
+<app-review-form></app-review-form>
+
+<div class="back-button">
+  <button (click)="goBack()">Back</button>
+</div>

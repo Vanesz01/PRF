@@ -1,0 +1,62 @@
+<div class="login-container">
+  <p class="title">Add user to a book club</p>
+  <form class="login-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <label>User</label>
+    <select
+      [(ngModel)]="selectedUser"
+      name="selectedUser"
+      required
+      [ngClass]="{ 'invalid-input': signupForm.get('user')?.errors }"
+      formControlName="user"
+    >
+      <option *ngFor="let user of users" [value]="user._id">
+        {{ user.name }}
+      </option>
+    </select>
+    <div
+      *ngIf="
+        signupForm.get('user')?.invalid &&
+        (signupForm.get('user')?.dirty || signupForm.get('user')?.touched)
+      "
+    >
+      <p
+        *ngIf="
+          signupForm.get('user')?.errors &&
+          (signupForm.get('user')?.errors)!['required']
+        "
+      >
+        User is required.
+      </p>
+    </div>
+    <label>Club</label>
+    <select
+      [(ngModel)]="selectedClub"
+      name="selectedClub"
+      required
+      [ngClass]="{ 'invalid-input': signupForm.get('club')?.errors }"
+      formControlName="club"
+    >
+      <option *ngFor="let club of clubs" [value]="club._id">
+        {{ club.name }}
+      </option>
+    </select>
+    <div
+      *ngIf="
+        signupForm.get('club')?.invalid &&
+        (signupForm.get('club')?.dirty || signupForm.get('club')?.touched)
+      "
+    >
+      <p
+        *ngIf="
+          signupForm.get('club')?.errors &&
+          (signupForm.get('club')?.errors)!['required']
+        "
+      >
+        Name is required.
+      </p>
+    </div>
+    <div class="buttons">
+      <button type="submit">Add</button>
+    </div>
+  </form>
+</div>

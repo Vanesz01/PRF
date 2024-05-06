@@ -1,0 +1,62 @@
+<app-header-component></app-header-component>
+<p class="main-title" *ngIf="!!book">
+  Book of the month: {{ book!.author }}: {{ book!.title }}
+</p>
+<p class="main-title">My clubs</p>
+<div
+  class="table-container"
+  *ngIf="myClubs && myClubs.length; else noMyClubsTemplate"
+>
+  <table class="clickable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Books</th>
+        <th>Users</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let club of myClubs" (click)="onRowClick(club._id)">
+        <td>{{ club.name }}</td>
+        <td>{{ club.description }}</td>
+        <td>{{ getBookTitles(club) }}</td>
+        <td>{{ getUserNames(club) }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #noMyClubsTemplate>
+  <p>You are not a member of any clubs. Join one below.</p>
+</ng-template>
+<p class="main-title">Clubs to join</p>
+<div
+  class="table-container"
+  *ngIf="otherClubs && otherClubs.length; else noClubsTemplate"
+>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Books</th>
+        <th>Users</th>
+        <th>Join</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let club of otherClubs">
+        <td>{{ club.name }}</td>
+        <td>{{ club.description }}</td>
+        <td>{{ getBookTitles(club) }}</td>
+        <td>{{ getUserNames(club) }}</td>
+        <td class="button">
+          <button (click)="addUserToClub(club._id)">Join</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #noClubsTemplate>
+  <p>No clubs to join.</p>
+</ng-template>

@@ -1,0 +1,4 @@
+<div *ngIf="!!user">
+  <span (click)="navigateToBookClub()">Book club</span>
+  <span (click)="navigateToUserPage()">{{ user!.name }}</span>
+</div>

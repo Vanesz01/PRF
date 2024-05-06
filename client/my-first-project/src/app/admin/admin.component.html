@@ -1,0 +1,131 @@
+<app-header-component></app-header-component>
+<div class="main-title">Admin page</div>
+<div class="flex-container">
+  <div class="form"><app-book-form></app-book-form></div>
+  <div class="form"><app-club-form></app-club-form></div>
+  <div class="form"><app-book-to-club></app-book-to-club></div>
+</div>
+<div class="flex-container">
+  <div class="form"><app-user-to-club></app-user-to-club></div>
+  <div class="form"><app-book-of-month></app-book-of-month></div>
+</div>
+<p class="main-title">All clubs</p>
+<div
+  class="table-container"
+  *ngIf="clubs! && clubs!.length; else noClubsTemplate"
+>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let club of clubs!">
+        <td>{{ club.name }}</td>
+        <td>{{ club.description }}</td>
+        <td class="button">
+          <button (click)="onDeleteClub(club._id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #noClubsTemplate>
+  <p>No clubs available.</p>
+</ng-template>
+<p class="main-title">All books</p>
+<div
+  class="table-container"
+  *ngIf="books! && books!.length; else noBooksTemplate"
+>
+  <table>
+    <thead>
+      <tr>
+        <th>Author</th>
+        <th>Title</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books!">
+        <td>{{ book.author }}</td>
+        <td>{{ book.title }}</td>
+        <td class="button">
+          <button (click)="onDeleteBook(book._id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #noBooksTemplate>
+  <p>No books available.</p>
+</ng-template>
+<p class="main-title">All users</p>
+<div
+  class="table-container"
+  *ngIf="users && users.length; else noUsersTemplate"
+>
+  <table>
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Nickname</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.email }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.address }}</td>
+        <td>{{ user.nickname }}</td>
+        <td class="button">
+          <button (click)="onDeleteUser(user._id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #noUsersTemplate>
+  <p>No users available.</p>
+</ng-template>
+<p class="main-title">All reviews</p>
+<div
+  class="table-container"
+  *ngIf="reviews && reviews.length; else noReviewsTemplate"
+>
+  <table>
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Nickname</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let review of reviews">
+        <td>{{ review.rating }}</td>
+        <td>{{ review.rating }}</td>
+        <td>{{ review.comment }}</td>
+        <td>{{ review.comment }}</td>
+        <td class="button">
+          <button (click)="onDeleteReview(review._id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #noReviewsTemplate>
+  <p>No reviews available.</p>
+</ng-template>
+
+<div class="logout-button buttons">
+  <button type="reset" (click)="logout()">Logout</button>
+</div>

@@ -1,0 +1,36 @@
+<div class="login-container">
+  <p class="title">Book of the month: {{ book!.author }}: {{ book!.title }}</p>
+  <p class="title">Change the book of the month</p>
+  <form class="login-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <select
+      [(ngModel)]="selectedBook"
+      name="selectedBook"
+      required
+      [ngClass]="{ 'invalid-input': signupForm.get('book')?.errors }"
+      placeholder="Book"
+      formControlName="book"
+    >
+      <option *ngFor="let book of books" [value]="book._id">
+        {{ book.author }}: {{ book.title }}
+      </option>
+    </select>
+    <div
+      *ngIf="
+        signupForm.get('book')?.invalid &&
+        (signupForm.get('book')?.dirty || signupForm.get('book')?.touched)
+      "
+    >
+      <p
+        *ngIf="
+          signupForm.get('book')?.errors &&
+          (signupForm.get('book')?.errors)!['required']
+        "
+      >
+        Book is required.
+      </p>
+    </div>
+    <div class="buttons">
+      <button type="submit">Change</button>
+    </div>
+  </form>
+</div>
